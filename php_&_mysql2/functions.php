@@ -158,8 +158,11 @@
 
 	// mencari data
 	function cari($keyword) {
+		global $jumlahDataHal;
+		global $awaldata;
+
 		$query = "SELECT * FROM mahasiswa WHERE nama LIKE '%$keyword%' OR 
-		nrp LIKE '%$keyword%' OR email LIKE '%$keyword%' OR jurusan LIKE '%$keyword%'";
+		nrp LIKE '%$keyword%' OR email LIKE '%$keyword%' OR jurusan LIKE '%$keyword%' LIMIT $awaldata, $jumlahDataHal";
 
 		return query($query);
 

@@ -1,4 +1,12 @@
 <?php
+	session_start();
+
+	if (!isset($_SESSION['login'])) {
+
+		header('Location: login.php');
+		exit;
+	}
+	
 	// import dari file functions.php 
 	require 'functions.php';
 
@@ -33,45 +41,73 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Tambah Data Mahasiswa</title>
-
 	<style>
-		ul li {
-			margin-bottom: 20px;
-			list-style-type: none;
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
 		}
+
+		h1 {
+			text-align: center;
+			margin-top: 40px;
+			margin-bottom: 20px;
+		}
+
+		form {
+			background-color: lightgrey;
+			width: 30%;
+			padding: 20px;
+			margin: auto;
+		}
+
+		form .nama, .nrp, .email, .jurusan, .gambar {
+			margin-bottom: 10px;
+			cursor: pointer;
+		}
+
+		form #nama, #nrp, #email, #jurusan, #gambar {
+			width: 100%;
+			padding: 5px;
+		}
+
+		button {
+			padding: 5px;
+			cursor: pointer;
+		}
+
 	</style>
 </head>
 <body>
 	<h1>Tambah Data Mahasiswa</h1>
-
 	<form method="post" enctype="multipart/form-data">
-		<ul>
-			<li>
-				<label for="nama">Nama</label>
-				<input type="text" name="nama" id="nama" required>
-			</li>
-			<li>
-				<label for="nrp">NRP</label>
-				<input type="text" name="nrp" id="nrp" required>
-			</li>
-			<li>
-				<label for="email">Email</label>
-				<input type="text" name="email" id="email" required>
-			</li>
-			<li>
-				<label for="jurusan">Jurusan</label>
-				<input type="text" name="jurusan" id="jurusan" required>
-			</li>
-			<li>
-				<label for="gambar">Gambar</label>
-				<input type="file" name="gambar" id="gambar">
-			</li>
-			<li>
-				<button type="submit" name="submit">Tambah</button>
-			</li>
-		</ul>
+		<div class="nama">
+			<label for="nama">Nama</label>
+			<input type="text" name="nama" id="nama" required>
+		</div>
+		<div class="nrp">
+			<label for="nrp">NRP</label>
+			<input type="text" name="nrp" id="nrp" required>
+		</div>
+		<div class="email">
+			<label for="email">Email</label>
+			<input type="text" name="email" id="email" required>	
+		</div>
+		<div class="jurusan">
+			<label for="jurusan">Jurusan</label>
+			<input type="text" name="jurusan" id="jurusan" required>
+		</div>
+		<div class="gambar">
+			<label for="gambar">Gambar</label>
+			<input type="file" name="gambar" id="gambar">
+		</div>
+		<div class="btn">
+			<button type="submit" name="submit">Tambah</button>
+		</div>
 	</form>
-
-	<a href="index.php">kembali</a>
+	<br>
+	<center>
+		<a href="index.php">Kembali</a>
+	</center>
 </body>
 </html>
