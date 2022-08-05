@@ -1,7 +1,7 @@
 <?php  
-
 	session_start();
-	$_SESSION = [];
+
+	$_SESSION = []; // meyakinkan session itu hilang 
 	session_unset();
 	session_destroy();
 

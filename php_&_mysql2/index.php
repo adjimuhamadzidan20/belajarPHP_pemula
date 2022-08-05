@@ -3,7 +3,7 @@
 	require 'functions.php';
 
 	session_start();
-
+	// session (mencegah masuk ke hal login)
 	if (!isset($_SESSION['login'])) {
 
 		header('Location: login.php');

@@ -1,14 +1,14 @@
 <?php
+	// import dari file functions.php 
+	require 'functions.php';
+	
 	session_start();
-
+	// session (mencegah masuk ke hal login)
 	if (!isset($_SESSION['login'])) {
 
 		header('Location: login.php');
 		exit;
 	}
-	
-	// import dari file functions.php 
-	require 'functions.php';
 
 	// mengecek button ditekan / tidak
 	if ( isset($_POST['submit']) ) {
